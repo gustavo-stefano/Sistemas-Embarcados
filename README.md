@@ -18,3 +18,10 @@ A arquitetura do sistema robotico pode ser vista em detalhes no esquematico a se
 
 Como o robo possiu um grnade numero de atuadores, o esquema a seguir foi desenvolvido para a nomenclatura dos mesmo e evitar confusoes ao desenvolver o código:
 ![Atuadores Formiga robotica](https://user-images.githubusercontent.com/38964186/172720001-e0654bee-0c1f-4032-9b64-5375e0b5d930.png)
+
+
+![](https://github.com/gustavo-stefano/Sistemas-Embarcados/blob/main/ezgif-1-5fb3583126.gif)
+
+![](https://github.com/gustavo-stefano/Sistemas-Embarcados/blob/main/ezgif-1-f1d40c770e.gif)
+
+![](https://github.com/gustavo-stefano/Sistemas-Embarcados/blob/main/ezgif-1-bac7082c9b.gif)
