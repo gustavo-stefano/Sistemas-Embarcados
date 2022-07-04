@@ -80,19 +80,21 @@ void foward(){
             leg1 = i;
             us(9999);//step 
         }
+        leg1 = 1.0f;
         //--x--
         //sholder 1 moving foward
         for(float i = 0.7f; i > 0.4f; i-= 0.01f){
             shoulder1 = i;
             us(9999);//step
         }
+        shoulder1 = 0.4f;
         //--x--
         //falling leg1
         for(float i = 1.0f; i > 0.4f; i-= 0.01f){
             leg1 = i;
             us(9999);//step
         }
-        
+        leg1 = 0.4f;
         //--x--
         
         //rising leg3
@@ -100,19 +102,21 @@ void foward(){
             leg3 = i;
             us(9999);//step
         }
+        leg3 = 1.0f;
         //--x--
         //sholder 3 moving foward
         for(float i = 0.7f; i > 0.4f; i-= 0.01f){
             shoulder3 = i;
             us(9999);//step
         }
+        shoulder3 = 0.4f;
         //--x--
         //falling leg3
         for(float i = 1.0f; i > 0.4f; i-= 0.01f){
             leg3 = i;
             us(9999);//step
         }
-        
+        leg3 = 0.4f;
         //--x--
         
         //rising leg5
@@ -120,18 +124,21 @@ void foward(){
             leg5 = i;
             us(9999);//step
         }
+        leg5 = 1.0f;
         //--x--
         //sholder 5 moving foward
         for(float i = 0.7f; i > 0.4f; i-= 0.01f){
             shoulder5 = i;
             us(9999);//step
         }
+        shoulder5 = 0.4f;
         //--x--
         //falling leg5
         for(float i = 1.0f; i > 0.4f; i-= 0.01f){
             leg5 = i;
             us(9999);//step
         }
+        leg5 = 0.4f;
         
         //all the shoulders moving backward
         for(float i = 0.7f; i > 0.4f ; i-= 0.01f){
