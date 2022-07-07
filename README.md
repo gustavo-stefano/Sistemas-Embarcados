@@ -9,10 +9,10 @@ Membros do grupo:
   - Lucas Padlipskas
   - Andre Mota
   
-Projeto:
+##Projeto:
 Nosso grupo optou pela formiga robótica. O objetivo do projeto é programar o robô de forma que ele possa ser minimamente controlavel, em outras palavras, capaz de transladar em linha reta e fazer curvas para direita e esquerda de forma controlada. 
 
-Arquitetura:
+##Arquitetura:
 A arquitetura do sistema robotico pode ser vista em detalhes no esquematico a seguir:
 ![Arquitetura Eletronica Formiga Robotica](https://user-images.githubusercontent.com/38964186/172719800-e0dd9714-1caa-4bdd-af15-6b2b1c536a52.png)
 
@@ -26,6 +26,8 @@ Como o robo possiu um grnade numero de atuadores, o esquema a seguir foi desenvo
 
 ![](https://github.com/gustavo-stefano/Sistemas-Embarcados/blob/main/ezgif-1-bac7082c9b.gif)
 
+##Hardware:
+###Eletrônica
 O projeto é consituído por dois microcontroladores do kit de desenvolvimento mbed com o processador NXP lpc1768, nos quais possue 6 saídas PWM cada para o controle dos servo motores. Duas interfaces de comunicação de rede CAN, nas quais uma delas será usada para constituir a rede de comunicação do sistema. E ainda, os temporizadores nativos dos processadores foram inicializados para ter uma base tempo confiável e robusta para o sistema. Outro sistema importante utilizado no projeto foram os interrupts do lpc1768. Em uma das placas, uma função IRQ_Handler (Interrupt request handler) foi criada para que a execução das funções de movimento das pernas do robô sejam executadas simultâneamente. Ou seja, ao receber as intruções do linux embarcada através da rede CAN, os controladores deverão executar as rotinas de movimento de acordo com o que foi instruído. No entanto, para o melhor funcionamento do sistema, é interessante que estas rotinas sejam executadas em sincronia. Sendo assim, um dos controladores possue um comando para que o pino 5 do kit de desenvolvimento passe de estado low para high. O outro controlador tem seu interrupt configurado como borda de subida, sendo assim reagindo a variação do estado da saída do outro controlador. Outro aspecto que vale a menção são os leds que estão na mbed. Eles foram usados para podermos visualizar quais rotinas estão sendo executadas em cada placa. Se as placas estiverem em "standBy", ou seja, as pernas do robô estão paradas, todos os 4 leds estarão acesos. Se a função a ser executada é a 'foward', os leds acenderão de forma crescente (primeiramente o led1, depois o led2 e etc). De forma análoga à função 'backward', os leds acenderão de maneira decrescente (primeiro o led4 e por último o led1). 
 
 ![Pinagem do kit de desenvolvimento mbed lpc1768](lpc1768_pinout.png)
@@ -37,6 +39,11 @@ O kit de desenvolvimento mbed possue um processador de arquitetura ARM Cortex-M3
 Ainda falando da constituição do projeto, temos que mencionar o microprocessador embarcado no robô. Para o robô foi utilizado a BeagleBone Black. O seu processador é um Sitara AM3359, com um clock de 1GHz, memórica eMMC embarcada de capacidade de 2 GB e uma memória SDRAM de 521 MB. A versão do debian utilizada foi o Debian 9.12 gravado em um cartão SD externo. Nesta placa de linux embarcado existem dois controladores para a rede CAN (can0 e can1), nos quais somente um deles foi utilizado. Para a inicialização da rede na BBB basta apenas designar as funções dos pinos p9.24 e p9.26 como "config-pin p9.24 can" e "config-pin p9.26 can" para o controlador can1, ou analogamente para can0 "config-pin p9.19 can" e "config-pin p9.20 can". Logo após, basta dar o seguinte comando especificando quais dos controladores o usuário deseja usar assim como a frequência de operação do controlador(neste caso habilitando o can1 com 500 KHz: "sudo /sbin/ip link set can1 up type can bitrate 500000"). A linguagem de programação utilizada na BBB foi o python. Sendo assim, é visto que mesmo com arquiteturas distintas os dois hardwares podem trocar informações entre si através da rede CAN. A biblioteca utilizada para o código foi a 'python-can'. Basicamente foi definido quais dos controladores da placa será utilizado, e comandos como recieve ou send são utilizados para receber e mandar mensagens, respectivamente.
 
 ![Pinagem da BeagleBone Black](BeagleBone-Black-Pinout.jpg)
+
+###Mecânica
+A plataforma robótica é constituidade de corpos rígidos, compondo o corpo e as penas da formiga, interligados por servo-atuadores. O corpo principal, fornece sustentatação aos componentes eletrônicos e conecta os motore identificados como "horizontais" na figura anterior. Este é fabricado em madeira por meio de corte a lazer, técnica econômica que permite a geração de estruturas bidimencionais que são, por sua vez, montadas e coladas para geração da estrutura tridimencional necessária. Já as pernas da formiga robótica e as peças que unem os servo motores horizontais ao corpo princial, foram geradas por meio de fabricação aditiva em polímero. Esta técnica, tambêm notoriamente econômica, permite a geracão de estruturas tridimencionais complexas com baixos custos associados ao material bruto, mão e óbra e ferramentagem.
+
+Os motores utilizados são denominados servo-motores. A miniaturização de componentes eletrônicos nas últimas décadas e a espanção do mercado hobista de eletrônica, tornaram tais componentes acessiveis e atrativos para o público em geral. O grande diferencial destes componentes quando comparados com motores discrétos, é o fato de que toda circuitaria responsavel pela atuação, sensoriamento e controle do motor, estão integrados juntos ao mesmo em uma única peça selada. Ou seja, o servo-motor adiciona uma camada de abistração entre o motor e o usuário, de forma que este somente precisa fornecer a alimentação requerida para o funcionamento do mesmo e o ângulo desejado em um determinado momento. A adoção deste componente, permitiu uma grande simplificação dos algorítimos e da eletrônicade responsavvel pelo controle das pernas do robô.
 
 Sobre o andamento do projeto, varios testes de validação foram realizados, desde testes sobre a rotina de passos do robô, até os testes de comunição entre os hardwares. No entanto, até o momento há um problema que impossibilita o correto funcionamento do robô. Acredita-se que um (ou alguns) dos servos motores utilizados neste robô estejam defeituosos  
 
