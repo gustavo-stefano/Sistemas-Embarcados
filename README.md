@@ -46,7 +46,7 @@ A plataforma robótica é constituidade de corpos rígidos, compondo o corpo e a
 
 Os motores utilizados são denominados servo-motores. A miniaturização de componentes eletrônicos nas últimas décadas e a espanção do mercado hobista de eletrônica, tornaram tais componentes acessiveis e atrativos para o público em geral. O grande diferencial destes componentes quando comparados com motores discrétos, é o fato de que toda circuitaria responsavel pela atuação, sensoriamento e controle do motor, estão integrados juntos ao mesmo em uma única peça selada. Ou seja, o servo-motor adiciona uma camada de abistração entre o motor e o usuário, de forma que este somente precisa fornecer a alimentação requerida para o funcionamento do mesmo e o ângulo desejado em um determinado momento. A adoção deste componente, permitiu uma grande simplificação dos algorítimos e da eletrônicade responsavvel pelo controle das pernas do robô.
 
-![Servo Motores(Servo Motores.png)
+![Servo Motores](Servo Motores.png)
 
 Sobre o andamento do projeto, varios testes de validação foram realizados, desde testes sobre a rotina de passos do robô, até os testes de comunição entre os hardwares. No entanto, até o momento há um problema que impossibilita o correto funcionamento do robô. Acredita-se que um (ou alguns) dos servos motores utilizados neste robô estejam defeituosos  
 
