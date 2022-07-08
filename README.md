@@ -41,6 +41,11 @@ Ainda falando da constituição do projeto, temos que mencionar o microprocessad
 
 ![Pinagem da BeagleBone Black](BeagleBone-Black-Pinout.jpg)
 
+O circuito deste projeto é o seguinte:
+![](CAN_circuit.jpeg)
+
+Neste caso, temos que os dois resistores de 120 Ohms constituem o barramento da rede CAN. As pequenas PCB's são os transievers da rede. Eles são CI's que tem o intuito de converter as mensagens provenientes do controlodar em níveis de tensão adequadas para transmissão de mensagens na rede. Estas PCB's foram confeccionadas no laboratório. Para os testes, o controlador can1 da BeagleBone Black foi utilizado 
+
 ### Mecânica
 A plataforma robótica é constituidade de corpos rígidos, compondo o corpo e as penas da formiga, interligados por servo-atuadores. O corpo principal, fornece sustentatação aos componentes eletrônicos e conecta os motore identificados como "horizontais" na figura anterior. Este é fabricado em madeira por meio de corte a lazer, técnica econômica que permite a geração de estruturas bidimencionais que são, por sua vez, montadas e coladas para geração da estrutura tridimencional necessária. Já as pernas da formiga robótica e as peças que unem os servo motores horizontais ao corpo princial, foram geradas por meio de fabricação aditiva em polímero. Esta técnica, tambêm notoriamente econômica, permite a geracão de estruturas tridimencionais complexas com baixos custos associados ao material bruto, mão e óbra e ferramentagem.
 
