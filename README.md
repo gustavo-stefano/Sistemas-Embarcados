@@ -55,5 +55,5 @@ Os motores utilizados são denominados servo-motores. A miniaturização de comp
 
 ![Servo Motores](Servo-Motores.png)
 
-Sobre o andamento do projeto, varios testes de validação foram realizados, desde testes sobre a rotina de passos do robô, até os testes de comunição entre os hardwares. No entanto, até o momento há um problema que impossibilita o correto funcionamento do robô. Acredita-se que um (ou alguns) dos servos motores utilizados neste robô estejam defeituosos  
+Sobre o andamento do projeto, varios testes de validação foram realizados, desde testes sobre a rotina de passos do robô, até os testes de comunição entre os hardwares. No entanto, até o momento há um problema que impossibilita o correto funcionamento do robô. Acredita-se que um (ou alguns) dos servos motores utilizados neste robô estejam defeituosos.
 
